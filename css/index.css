@@ -1,0 +1,14 @@
+*{
+    margin:0; padding:0;
+    box-sizing: content-box;
+    font-size: 12px;
+    font-family: "BKBulMatPro-Bold","Pretendard",sans-serif;
+}
+@font-face {
+    font-family: 'BKBulMatPro-Bold';
+    src: url('../font/BKBulMatPro-Bold.woff') format('woff');
+    font-weight: 700; 
+}
+#wrap{
+    background-color: #f5ebdc;
+}
