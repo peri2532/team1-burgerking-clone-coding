@@ -354,7 +354,7 @@ body {
 /* 푸터 기본 배경 및 설정 */
 .footer {
     background-color: #fffcf8; 
-    padding: 60px 0 80px;
+    padding: 0px 0 80px;
     font-family: "Pretendard", sans-serif;
 }
 
