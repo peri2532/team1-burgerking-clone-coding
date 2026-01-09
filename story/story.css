@@ -1,6 +1,6 @@
-/* 기존 스타일 생략 없이 통합 */
-
-/* 기본 초기화 */
+/* =========================================
+   1. 기본 초기화 및 공통 스타일
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +11,7 @@ body {
     font-family: "Pretendard", "Malgun Gothic", sans-serif;
     color: #3a1d0f;
     line-height: 1.8;
-    background-color: #f5ebdc;
+    background-color: #f5ebdc; /* 메인 배경색 */
     font-weight: bold;
 }
 
@@ -19,13 +19,20 @@ body {
     width: 100%;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================================
+   2. 본문 레이아웃 (Main Content)
+   ========================================= */
 .contain {
     max-width: 1200px;
     margin: 0 auto;
     padding: 90px 20px;
 }
 
-/* 상단 메인 타이틀 */
 .title_page {
     text-align: center;
     margin-bottom: 80px;
@@ -36,7 +43,7 @@ body {
     font-weight: 800;
 }
 
-/* 카드 공통 스타일 */
+/* 카드 스타일 */
 .card {
     display: flex;
     flex-wrap: wrap; 
@@ -59,7 +66,6 @@ body {
     font-weight: 800;
 }
 
-/* --- 글로벌/코리아 카드 --- */
 .card .content_group { flex: 1; }
 .card .card_image { flex: 1.3; }
 
@@ -67,7 +73,6 @@ body {
     width: 100%;
     border-radius: 24px;
     display: block;
-    padding-left: 10px; 
 }
 
 .text1 {
@@ -80,13 +85,12 @@ body {
     font-weight: 700;
 }
 
-/* --- 회사 정보 카드 --- */
+/* 회사 정보 전용 스타일 */
 .card:last-of-type .content_group { flex: 1.8; }
 .card:last-of-type .card_image_area {
     flex: 1;
     display: flex;
     justify-content: flex-end;
-    padding-left: 40px;
 }
 
 .company_info dl {
@@ -114,7 +118,6 @@ body {
     margin-top: 5px;
 }
 
-/* 지도 스타일 */
 .map {
     width: 100%;
     max-width: 450px;
@@ -122,207 +125,66 @@ body {
     border-radius: 18px;
     overflow: hidden;
 }
-.map iframe {
-    width: 100% !important;
-    height: 100% !important;
-    border: 0;
-}
 
-/* TOP 버튼 */
+/* =========================================
+   3. 고정 요소 (Top 버튼)
+   ========================================= */
 .btn_top {
-    position: fixed; bottom: 50px; right: 50px;
-    width: 60px; height: 60px;
-    background-color: #fff; border: 1px solid #e5e5e5;
-    border-radius: 50%; cursor: pointer; z-index: 1000;
-    display: none; /* 스크립트로 제어 */
+    position: fixed; 
+    bottom: 50px; 
+    right: 50px;
+    width: 60px; 
+    height: 60px;
+    background-color: #fff; 
+    border: 1px solid #e5e5e5;
+    border-radius: 50%; 
+    cursor: pointer; 
+    z-index: 1000;
+    display: none;
 }
+
 .btn_top span { display: none; }
-.btn_top::after, .btn_top::before {
-    content: ""; position: absolute; left: 50%; width: 30px; margin-left: -15px;
-}
 .btn_top::before {
-    top: 11px; height: 6px;
-    background: url(https://www.burgerking.co.kr/img/btn_top.svg) no-repeat top;
-}
-.btn_top::after {
-    top: 17px; height: 24px;
-    background: url(https://www.burgerking.co.kr/img/btn_top.svg) no-repeat center -6px;
-    opacity: 0; animation: topMove 2s linear infinite;
-}
-@keyframes topMove {
-    0% { opacity: 0; transform: translateY(10px); }
-    50% { opacity: 1; }
-    100% { opacity: 0; transform: translateY(-10px); }
+    content: ""; 
+    position: absolute; 
+    top: 15px;
+    left: 50%; 
+    width: 30px; 
+    height: 30px;
+    margin-left: -15px;
+    background: url(https://www.burgerking.co.kr/img/btn_top.svg) no-repeat center;
 }
 
 /* =========================================
-   추가된 푸터(Footer) 스타일 
+   4. 푸터 영역 (Footer) - 수정 및 통합
    ========================================= */
-.footer {
-    background-color: #2e2e2e; /* 버거킹 특유의 어두운 배경 */
-    color: #fff;
-    padding: 60px 0 100px;
-    font-weight: 400;
-    font-size: 14px;
-}
-
-.footer .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* 이용약관 메뉴 */
-.terms_menu {
-    border-bottom: 1px solid #444;
-    padding-bottom: 20px;
-    margin-bottom: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-}
-
-.terms_menu a {
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.terms_menu .mouse_over:hover {
-    text-decoration: underline;
-}
-
-.btn_recruit {
-    background-color: #555;
-    padding: 2px 12px;
-    border-radius: 4px;
-    font-size: 13px;
-}
-
-/* =========================================
-   버거킹 공식 스타일 푸터 (Footer)
-   ========================================= */
-.footer {
-    background-color: #2e2e2e; /* 진한 회색 배경 */
-    color: #fff;
-    padding: 60px 0 80px;
-    font-family: "Pretendard", sans-serif;
-}
-
-.footer .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* 상단 이용약관 메뉴 바 */
-.terms_menu {
-    border-bottom: 1px solid #444;
-    padding-bottom: 25px;
-    margin-bottom: 40px;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    font-size: 15px;
-    font-weight: 600;
-}
-
-.terms_menu a {
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.terms_menu a:hover {
-    text-decoration: underline;
-}
-
-/* 채용사이트 버튼 전용 */
-.btn_recruit {
-    margin-left: auto; /* 우측 끝으로 밀기 */
-    background-color: #4a4a4a;
-    padding: 6px 15px;
-    border-radius: 4px;
-    font-size: 13px;
-    font-weight: 500;
-}
-
-/* =========================================
-   버거킹 공식 아이콘 반영 푸터 (Footer)
-   ========================================= */
-.footer {
-    background-color: #fffcf8;
-    color: #fff;
-    padding: 15px 0 20px;
-    font-family: "Pretendard", sans-serif;
-}
-
-.footer .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* 상단 메뉴 바 */
-.terms_menu {
-    padding-bottom: 25px;
-    margin-bottom: 40px;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    font-size: 15px;
-}
-
-.terms_menu a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.btn_recruit {
-    margin-left: auto;
-    background-color: #4a4a4a;
-    padding: 6px 15px;
-    border-radius: 4px;
-    font-size: 13px;
-}
-
-/* 푸터 전체 배경 및 기본 폰트 색상 */
-.footer {
-    background-color: #fffcf8; /* 이미지의 밝은 아이보리 배경색 */
-    padding: 40px 0 50px;
-    font-family: "Pretendard", sans-serif;
+#footer {
+    background-color: #fffcf8; /* 버거킹 하단 밝은 배경 */
     border-top: 1px solid #f2ebe0;
-    font-size: .75rem;
 }
 
 .footer .container {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
-    height: 215px;
+    padding: 40px 20px 60px;
 }
 
-/* 상단 메뉴 및 채용사이트 배치 */
+/* 푸터 상단 메뉴 및 채용 버튼 */
 .footer_top {
     display: flex;
-    justify-content: flex-end; /* 오른쪽 정렬 */
+    justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
-    position: relative;
+    margin-bottom: 40px;
 }
 
 .menu_wrap {
-    position: absolute;
-    left: 200px; /* 로고 시작점과 맞추기 위한 여백 */
     display: flex;
-    gap: 40px;
-    padding-left: 70px;
+    gap: 30px; /* 메뉴 간격 조정 */
+    flex-wrap: wrap;
 }
 
 .menu_wrap a {
     color: #ac928a;
-    text-decoration: none;
     font-size: 14px;
     font-weight: 500;
 }
@@ -332,106 +194,53 @@ body {
     text-decoration: underline;
 }
 
-/* 채용사이트 버튼 디자인 (이미지의 갈색 라운드 버튼) */
 .btn_recruit {
-    background-color: #502213; /* 진한 갈색 */
-    color: #fff;
+    background-color: #502213; /* 버거킹 갈색 */
+    color: #fff !important;
     padding: 10px 24px;
     border-radius: 25px;
     font-size: 14px;
     font-weight: 700;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    transition: background 0.3s;
 }
 
-.btn_recruit::after {
-    content: "↗"; /* 화살표 아이콘 */
-    font-size: 12px;
+.btn_recruit:hover {
+    background-color: #3a1d0f;
 }
 
-/* 푸터 기본 배경 및 설정 */
-.footer {
-    background-color: #fffcf8; 
-    padding: 0px 0 80px;
-    font-family: "Pretendard", sans-serif;
-}
-
-.footer .container {
-        max-width: 1520px;
-    margin: 0 auto;
-    padding:  40px 10px;
-}
-
-/* 로고와 정보 텍스트를 가로로 배치 */
-.info_area_flex {
-    display: flex;
-    align-items: flex-start; /* 로고 상단에 텍스트 시작점 맞춤 */
-    gap: 40px; /* 로고와 텍스트 사이 간격 */
-}
-.txt_line {
-    color: #ac928a;
-    text-decoration: underline;
-    margin-left: 5px;
-}
-.footer_logo {
-    font-size: 32px;
-    font-weight: 900;
-    color: #ac928a; /* 이미지와 동일한 로고 색상 */
-    line-height: 1; /* 로고 높이 최소화 */
-    white-space: nowrap; /* 로고 줄바꿈 방지 */
-}
-
-/* 텍스트 정보 스타일 */
-.footer .info p {
-    font-size: 13px;
-    color: #ac928a;
-    line-height: 1.6;
-    margin-bottom: 2px;
-}
-
-/* 상단 메뉴 및 채용 버튼 */
-.footer_top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 40px;
-}
-
-.menu_wrap {
-    display: flex;
-    gap: 100px;
-}
-
-.menu_wrap a {
-    color: #ac928a;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.menu_wrap a.bold {
-    font-weight: 800;
-    text-decoration: underline;
-}
-
-.btn_recruit {
-    background-color: #502213;
-    color: #fff;
-    padding: 8px 20px;
-    border-radius: 20px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 700;
-}
-
-/* 우측 SNS 영역 */
+/* 푸터 하단 로고 및 정보 */
 .footer .cont {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end; /* SNS 아이콘을 하단 정렬 */
+    align-items: flex-end;
 }
 
+.info_area_flex {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.footer_logo {
+    font-size: 28px;
+    font-weight: 900;
+    color: #ac928a;
+    letter-spacing: -1px;
+}
+
+.footer .info p {
+    font-size: 13px;
+    color: #ac928a;
+    line-height: 1.8;
+    font-weight: 400; /* 정보 텍스트는 가독성을 위해 얇게 */
+}
+
+.txt_line {
+    text-decoration: underline;
+    margin-left: 5px;
+}
+
+/* SNS 아이콘 그룹 */
 .sns_group {
     display: flex;
     align-items: center;
@@ -440,35 +249,34 @@ body {
 
 .sns_icons {
     display: flex;
-    gap: 12px;
+    gap: 10px;
 }
 
-.sns_icons a {
+.sns_icons a, .btn_tim {
     display: block;
-    width: 35px;
-    height: 35px;
+    width: 36px;
+    height: 36px;
     background-size: contain;
     background-repeat: no-repeat;
-    font-size: 0;
+    font-size: 0; /* 글자 숨김 */
 }
 
-/* 아이콘 이미지 적용 */
 .ico_insta { background-image: url('https://www.burgerking.co.kr/img/ico_sns_instagram.svg'); }
 .ico_face { background-image: url('https://www.burgerking.co.kr/img/ico_sns_facebook.svg'); }
 .ico_x { background-image: url('https://www.burgerking.co.kr/img/ico_sns_x.svg'); }
 .ico_yt { background-image: url('https://www.burgerking.co.kr/img/ico_sns_youtube.svg'); }
+.btn_tim { background-image: url('https://www.burgerking.co.kr/img/ico_timhortons.svg'); }
 
 .bar {
     width: 1px;
-    height: 18px;
+    height: 14px;
     background-color: #e0d8cc;
 }
 
-.btn_tim {
-    display: block;
-    width: 35px;
-    height: 35px;
-    background: url('https://www.burgerking.co.kr/img/ico_timhortons.svg') no-repeat center;
-    background-size: contain;
-    font-size: 0;
+/* 반응형 대응 (필요시) */
+@media (max-width: 768px) {
+    .card { flex-direction: column; padding: 30px; }
+    .footer_top, .footer .cont { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .menu_wrap { gap: 15px; }
+    .info_area_flex { flex-direction: column; gap: 10px; }
 }
